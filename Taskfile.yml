@@ -12,4 +12,4 @@ tasks:
   run:
     desc: swag run for API v1
     cmds:
-      - go run main.go
+      - go run main.go -port 8081
