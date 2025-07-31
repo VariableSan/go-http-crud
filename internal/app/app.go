@@ -9,6 +9,7 @@ import (
 
 	"github.com/VariableSan/go-http-crud/internal/api"
 	"github.com/VariableSan/go-http-crud/internal/store"
+	"github.com/VariableSan/go-http-crud/migrations"
 )
 
 type Application struct {
@@ -20,6 +21,12 @@ type Application struct {
 func New() (*Application, error) {
 	pgDB, err := store.Open()
 	if err != nil {
+		return nil, err
+	}
+
+	err = store.MigrateFS(pgDB, migrations.FS, ".")
+	if err != nil {
+		pgDB.Close()
 		return nil, err
 	}
 
