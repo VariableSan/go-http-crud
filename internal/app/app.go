@@ -33,7 +33,7 @@ func New() (*Application, error) {
 	logger := log.New(os.Stdout, "", log.Ldate|log.Ltime)
 
 	workoutStore := store.New(pgDB)
-	workoutHandler := api.New(workoutStore)
+	workoutHandler := api.New(workoutStore, logger)
 
 	app := &Application{
 		Logger:         logger,
