@@ -10,6 +10,11 @@ tasks:
       - task --list
 
   run:
-    desc: swag run for API v1
+    desc: run for API
     cmds:
       - go run main.go -port 8081
+
+  dev:
+    cmds:
+      - air
+    desc: "Run live reload with Air"
