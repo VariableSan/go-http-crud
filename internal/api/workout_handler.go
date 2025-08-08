@@ -17,7 +17,7 @@ type WorkoutHandler struct {
 	logger       *log.Logger
 }
 
-func New(workoutStore store.WorkoutStore, logger *log.Logger) *WorkoutHandler {
+func NewWorkoutHandler(workoutStore store.WorkoutStore, logger *log.Logger) *WorkoutHandler {
 	return &WorkoutHandler{
 		workoutStore,
 		logger,

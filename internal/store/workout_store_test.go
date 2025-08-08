@@ -32,7 +32,7 @@ func TestCreateWorkout(t *testing.T) {
 	db := setupTestDB(t)
 	defer db.Close()
 
-	store := New(db)
+	store := NewPostgresWorkoutStore(db)
 
 	tests := []struct {
 		name    string
