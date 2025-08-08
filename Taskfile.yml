@@ -10,11 +10,16 @@ tasks:
       - task --list
 
   run:
-    desc: run for API
+    desc: Run API Server
     cmds:
       - go run main.go -port 8081
 
   dev:
     cmds:
       - air
-    desc: "Run live reload with Air"
+    desc: Run live reload with Air
+
+  migrations:
+    desc: Run Goose Migrations
+    cmds:
+      - goose -dir migrations postgres "postgres://postgres:postgres@localhost:5432/postgres?sslmode=disable" up
